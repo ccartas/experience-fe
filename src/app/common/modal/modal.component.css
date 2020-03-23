@@ -1,0 +1,38 @@
+.modal-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #ffffff;
+    width: 50%;
+    height: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    overflow: hidden;
+}
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #808080;
+    opacity: 0.4;
+    top: 0;
+}
+.modal-content {
+    position: relative;
+}
+.first {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 0;
+    height: 100%;
+    transition: right 0.3s linear;
+}
+.second {
+    position: absolute;
+    width: 100%;
+    right: -100%;
+    top: 0;
+    transition: right 0.3s linear;
+}
