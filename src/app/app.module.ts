@@ -12,6 +12,10 @@ import { ModalComponent } from './common/modal/modal.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NotificationComponent } from './common/notification/notification.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,11 +26,14 @@ import { RegisterComponent } from './home/register/register.component';
     AboutComponent,
     ModalComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,11 @@
+<div class="notification-container" [ngStyle]="applyNotificationStyle()">
+    <div>
+        <h1>{{notificationData.notificationTitle}}</h1>
+    </div>
+    <div>
+        <p>{{notificationData.notificationBody}}</p>
+    </div>
+    <div>
+        <button (click)="dismissNotification()">Dismiss</button>
+    </div>
+</div>

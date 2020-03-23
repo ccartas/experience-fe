@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  displayUserModal: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  handleModalToggle(display: boolean) {
+    this.displayUserModal = display;
+  }
+
 
 }

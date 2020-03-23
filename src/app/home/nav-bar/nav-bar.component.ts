@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NavigationEntry } from 'src/app/common/models/models';
 import { Router } from '@angular/router';
 
@@ -12,15 +12,18 @@ export class NavBarComponent implements OnInit {
   navigationConfiguration: NavigationEntry[] = [
     {
       label: 'Home',
-      navigationPath: '/home',
+      navigationPath: 'landing',
       selected: false
     },
     {
       label: 'About',
-      navigationPath: '/about',
+      navigationPath: 'about',
       selected: false
     }
-  ]
+  ];
+  
+
+  @Output() displayUserModal: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private router: Router) { }
 
@@ -38,7 +41,11 @@ export class NavBarComponent implements OnInit {
   navigateTo(event, navigationPath, index) {
     this.navigationConfiguration.forEach(config => config.selected = false);
     this.navigationConfiguration[index].selected = true;
-    this.router.navigate([navigationPath])
+    this.router.navigate(['/home', {outlets: {home_outlet: navigationPath}}])
+  }
+
+  toggleUserModal() {
+    this.displayUserModal.emit(true);
   }
 
 

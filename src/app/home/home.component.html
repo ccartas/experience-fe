@@ -1,8 +1,12 @@
-<div>
-    <app-nav-bar></app-nav-bar>
-    <app-modal *ngIf="false">
-        <app-register slot="first"></app-register>
+<div class="home-container">
+    <app-nav-bar
+        (displayUserModal)="handleModalToggle($event)"></app-nav-bar>
+    <app-modal *ngIf="displayUserModal"
+        (closeModal)="handleModalToggle($event)">
+        <app-login slot="first"></app-login>
         <app-register slot="second"></app-register>
     </app-modal>
-<router-outlet name="home_outlet"></router-outlet>
+    <div>
+        <router-outlet name="home_outlet"></router-outlet>
+    </div>
 </div>

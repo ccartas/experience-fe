@@ -5,6 +5,6 @@
         class="nav-item"
         [ngStyle]="applyStyleForSelectedItem(navigationEntry.selected)"
         (click)="navigateTo($event, navigationEntry.navigationPath, i)" >{{navigationEntry.label}}</button>
-        <button class="nav-item login">Login</button>
+        <button class="nav-item login" (click)="toggleUserModal()">Login</button>
     </div>
 </div>

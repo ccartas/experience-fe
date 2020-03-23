@@ -11,17 +11,18 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
+        outlet: 'home_outlet',
         path: 'landing',
         component: LandingComponent,
-        outlet: 'home_outlet'
       },
       {
+        outlet: 'home_outlet',
         path: 'about',
-        component: AboutComponent
+        component: AboutComponent      
       },
       {
         path: '',
-        redirectTo: '/home/home(home_outlet:landing)',
+        redirectTo: '/home/(home_outlet:landing)',
         pathMatch: 'full'
       }
     ]
@@ -34,7 +35,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true, enableTracing: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
