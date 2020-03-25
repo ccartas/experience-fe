@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { User } from './models/models';
+import { HttpClient, HttpBackend } from '@angular/common/http';
+import { User, UserData, Experience } from './models/models';
 import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExperienceService {
+  private unsecuredHttpClient: HttpClient;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private httpBackend: HttpBackend) { 
+  this.unsecuredHttpClient = new HttpClient(this.httpBackend);              
+              }
 
   registerUser(user: User) {
-    return this.httpClient.post(`${environment.backendURL}/register`, user)
+    return this.unsecuredHttpClient.post(`${environment.backendURL}/register`, user)
   }
 
   loginUser(username, password) {
-    return this.httpClient.post(`${environment.backendURL}/login`, {username, password });
+    return this.unsecuredHttpClient.post<UserData>(`${environment.backendURL}/login`, {username, password });
+  }
+
+  addExperience(experience: Experience) {
+    return this.httpClient.post(`${environment.backendURL}/experience`, experience);
   }
 }

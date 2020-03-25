@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { NavigationEntry } from 'src/app/common/models/models';
+import { NavigationEntry, UserData } from 'src/app/common/models/models';
 import { Router } from '@angular/router';
+import { UserDataService } from 'src/app/common/user-data.service';
+import { LocalStorageService } from 'src/app/common/local-storage.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -25,7 +27,19 @@ export class NavBarComponent implements OnInit {
 
   @Output() displayUserModal: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private router: Router) { }
+  userData: UserData = null;
+
+  constructor(private router: Router,
+              private userDataService: UserDataService,
+              private localStorageService: LocalStorageService) {
+          this.userDataService.getUserData().subscribe(userData => {
+            if(userData) {
+              this.userData = {...userData}
+            } else {
+              this.userData = null;
+            }
+          })
+   }
 
   ngOnInit(): void {
   }
@@ -46,6 +60,16 @@ export class NavBarComponent implements OnInit {
 
   toggleUserModal() {
     this.displayUserModal.emit(true);
+  }
+
+  async logoutUser() {
+    try {
+      await this.localStorageService.clearStore();
+      this.userDataService.storeUserData(null);
+      this.router.navigate(['/home']);
+    } catch(err) {
+      console.log(err);
+    }
   }
 
 

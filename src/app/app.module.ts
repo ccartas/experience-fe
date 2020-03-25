@@ -13,8 +13,10 @@ import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NotificationComponent } from './common/notification/notification.component';
+import { AddExperienceModalComponent } from './home/add-experience-modal/add-experience-modal.component';
+import { AuthInterceptor } from './common/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { NotificationComponent } from './common/notification/notification.compon
     ModalComponent,
     LoginComponent,
     RegisterComponent,
-    NotificationComponent
+    NotificationComponent,
+    AddExperienceModalComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,13 @@ import { NotificationComponent } from './common/notification/notification.compon
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

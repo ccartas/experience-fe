@@ -1,0 +1,23 @@
+<div>
+    <h1>Add Experience</h1>
+    <form [formGroup]="experienceForm" class="experience-form" (ngSubmit)="addExperience($event)">
+        <input type="text" placeholder="Punct Plecare" />
+        <input type="text" placeholder="Destinatie" />
+        <h3>Alegeti mijlocul de transport folosit</h3>
+        <div class="radio-btn-group">
+            <div class="radio-btn-icon">
+                <img class="form-icon" src="./assets/imgs/tram.png" /> <br />
+                <input type="radio" />
+            </div>
+            <div class="radio-btn-icon">
+                <img class="form-icon" src="./assets/imgs/subway.png" /> <br />
+                <input type="radio" />
+            </div>
+            <div class="radio-btn-icon">
+                <img class="form-icon" src="./assets/imgs/public-transport.png" /> <br />
+                <input type="radio" />
+            </div>
+        </div>
+        <button>Add</button>
+    </form>
+</div>

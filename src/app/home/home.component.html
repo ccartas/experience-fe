@@ -3,10 +3,12 @@
         (displayUserModal)="handleModalToggle($event)"></app-nav-bar>
     <app-modal *ngIf="displayUserModal"
         (closeModal)="handleModalToggle($event)">
-        <app-login slot="first"></app-login>
+        <app-login slot="first" (onUserLoggedIn)="handleUserLoggedIn($event)"></app-login>
         <app-register slot="second"></app-register>
     </app-modal>
     <div>
         <router-outlet name="home_outlet"></router-outlet>
     </div>
+    <button class="floating-btn">Add</button>
+    <app-add-experience-modal></app-add-experience-modal>
 </div>

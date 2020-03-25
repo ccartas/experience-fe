@@ -27,4 +27,7 @@ export class ModalComponent implements OnInit {
   hideModal(){
     this.closeModal.emit(false);
   }
+  handleUserLoggedIn(event) {
+    console.log(event);
+  }
 }

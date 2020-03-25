@@ -1,0 +1,20 @@
+.experience-form {
+    display: grid;
+    width: 50%;
+    margin: 0 auto;
+    gap: 10px;
+}
+.radio-btn-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.radio-btn-icon {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 10px;
+}
+.form-icon {
+    width: 60px;
+}
