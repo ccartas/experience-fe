@@ -1,1 +1,17 @@
-<p>experience-list works!</p>
+<div>
+    <table>
+        <thead>
+            <th *ngFor="let header of headers">{{header}}</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let experience of experiences">
+                <td>{{experience.startingPoint}}</td>
+                <td>{{experience.destination}}</td>
+                <td>{{experience.transportationType}}</td>
+                <td>{{experience.duration}}</td>
+                <td>{{experience.satisfactionLevel}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

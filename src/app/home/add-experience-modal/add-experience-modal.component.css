@@ -1,3 +1,14 @@
+.add-experience-container {
+    position: absolute;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #000;
+    background: #FFF;
+    border-radius: 15px;
+}
+
 .experience-form {
     display: grid;
     width: 50%;

@@ -25,4 +25,7 @@ export class ExperienceService {
   addExperience(experience: Experience) {
     return this.httpClient.post(`${environment.backendURL}/experience`, experience);
   }
+  getAllExperiences() {
+    return this.unsecuredHttpClient.get<Experience[]>(`${environment.backendURL}/experience`);
+  }
 }

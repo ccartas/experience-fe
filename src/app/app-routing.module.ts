@@ -26,7 +26,12 @@ const routes: Routes = [
         pathMatch: 'full'
       }
     ]
-  },{
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then(module => module.ProfileModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

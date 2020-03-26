@@ -17,6 +17,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NotificationComponent } from './common/notification/notification.component';
 import { AddExperienceModalComponent } from './home/add-experience-modal/add-experience-modal.component';
 import { AuthInterceptor } from './common/auth.interceptor';
+import { LoaderComponent } from './common/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthInterceptor } from './common/auth.interceptor';
     LoginComponent,
     RegisterComponent,
     NotificationComponent,
-    AddExperienceModalComponent
+    AddExperienceModalComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

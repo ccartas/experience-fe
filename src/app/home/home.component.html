@@ -9,6 +9,9 @@
     <div>
         <router-outlet name="home_outlet"></router-outlet>
     </div>
-    <button class="floating-btn">Add</button>
-    <app-add-experience-modal></app-add-experience-modal>
+    <button class="floating-btn" (click)="toggleAddExperience($event)">Add</button>
+    <app-add-experience-modal 
+        *ngIf="displayAddExperienceModal"
+        (toggleExperienceForm)="toggleAddExperience($event)"
+        ></app-add-experience-modal>
 </div>

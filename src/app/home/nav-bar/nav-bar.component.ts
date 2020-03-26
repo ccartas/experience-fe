@@ -62,6 +62,10 @@ export class NavBarComponent implements OnInit {
     this.displayUserModal.emit(true);
   }
 
+  goToProfile() {
+    this.router.navigate(['/profile'])
+  }
+
   async logoutUser() {
     try {
       await this.localStorageService.clearStore();

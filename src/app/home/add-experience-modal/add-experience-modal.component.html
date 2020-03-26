@@ -1,23 +1,42 @@
-<div>
+<div class="add-experience-container">
     <h1>Add Experience</h1>
     <form [formGroup]="experienceForm" class="experience-form" (ngSubmit)="addExperience($event)">
-        <input type="text" placeholder="Punct Plecare" />
-        <input type="text" placeholder="Destinatie" />
+        <input type="text" placeholder="Punct Plecare" formControlName="startingPoint"/>
+        <input type="text" placeholder="Destinatie" formControlName="destination"/>
         <h3>Alegeti mijlocul de transport folosit</h3>
         <div class="radio-btn-group">
             <div class="radio-btn-icon">
                 <img class="form-icon" src="./assets/imgs/tram.png" /> <br />
-                <input type="radio" />
+                <input type="radio" formControlName="transportationType" value="TRAM" />
             </div>
             <div class="radio-btn-icon">
                 <img class="form-icon" src="./assets/imgs/subway.png" /> <br />
-                <input type="radio" />
+                <input type="radio"  formControlName="transportationType" value="SUBWAY"/>
             </div>
             <div class="radio-btn-icon">
                 <img class="form-icon" src="./assets/imgs/public-transport.png" /> <br />
-                <input type="radio" />
+                <input type="radio" formControlName="transportationType" value="BUS"/>
             </div>
         </div>
+        <input type="text" placeholder="Duration" formControlName="duration" />
+        <h3>Selectati gradul de satisfactie</h3>
+        <div class="radio-btn-group">
+            <div class="radio-btn-icon">
+                <img class="form-icon" src="./assets/imgs/sad.png" /> <br />
+                <input type="radio" formControlName="satisfactionLevel" value="TRAM" />
+            </div>
+            <div class="radio-btn-icon">
+                <img class="form-icon" src="./assets/imgs/smile.png" /> <br />
+                <input type="radio"  formControlName="satisfactionLevel" value="SUBWAY"/>
+            </div>
+            <div class="radio-btn-icon">
+                <img class="form-icon" src="./assets/imgs/happy.png" /> <br />
+                <input type="radio" formControlName="satisfactionLevel" value="BUS"/>
+            </div>
+        </div>
+        <div>
+        </div>
         <button>Add</button>
+        <button type="button" (click)="cancelAddExperience($event)">Cancel</button>
     </form>
 </div>

@@ -15,7 +15,8 @@ export class AuthInterceptor implements HttpInterceptor {
   private userData: UserData = null;
   constructor(private userDataService: UserDataService) {
     this.userDataService.getUserData().subscribe((data: UserData) => {
-      this.userData = {...data};
+      this.userData = data ? {...data} : null;
+      console.log(this.userData)
     })
   }
 
